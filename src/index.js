@@ -1,4 +1,5 @@
-import WebpackLogo from './assets/icons/webpack.svg'
-import './styles/style.css'
+// import WebpackLogo from './assets/icons/webpack.svg'
 
-console.log('test')
+import "./styles/style.scss";
+
+console.log("test");
