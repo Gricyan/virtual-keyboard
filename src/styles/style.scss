@@ -1,28 +1,9 @@
 @import "~normalize.css";
-@import "roboto.css";
+@import "base/fonts";
 
-body {
-  background-color: #222;
-  color: #eee;
-  font-family: 'Roboto', sans-serif;
-}
+@import "abstracts/constants";
+@import "abstracts/mixins";
+@import "abstracts/placeholders";
 
-.container {
-  padding-top: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-h1{
-  text-align: center;
-}
-
-.logo {
-  background-image: url(../assets/icons/rsschool-logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 700px;
-  height: 200px;
-  margin: 30px auto;
-}
+@import "components/main";
+@import "components/footer";
