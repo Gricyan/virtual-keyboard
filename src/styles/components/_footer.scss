@@ -1,4 +1,9 @@
+footer {
+  margin-top: 10px;
+}
+
 .footer-container {
+  box-sizing: border-box;
   max-width: $content-width;
   margin: 0 auto;
   padding: 20px;

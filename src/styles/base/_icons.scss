@@ -1,0 +1,56 @@
+.icon-before::before {
+  content: '';
+  width: 24px;
+  height: 24px; 
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 5px;
+}
+
+.backspace::before {
+  background-image: url("../assets/icons/keyboard_backspace.svg");
+}
+
+.tab::before {
+  background-image: url("../assets/icons/keyboard_tab.svg");
+}
+
+.enter::before {
+  background-image: url("../assets/icons/keyboard_enter.svg");
+}
+
+.shift-left::before,
+.shift-right::before {
+  background-image: url("../assets/icons/keyboard_shift.svg");
+}
+
+.icon-bg {  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 24px;
+}
+
+.space {
+  background-image: url("../assets/icons/keyboard_space_bar.svg");
+}
+
+.arrow-up {
+  background-image: url("../assets/icons/keyboard_arrow_up.svg");
+}
+
+.arrow-left {
+  background-image: url("../assets/icons/keyboard_arrow_left.svg");
+}
+
+.arrow-down {
+  background-image: url("../assets/icons/keyboard_arrow_down.svg");
+}
+
+.arrow-right {
+  background-image: url("../assets/icons/keyboard_arrow_right.svg");
+}
+
+.windows {
+  background-image: url("../assets/icons/keyboard_windows.svg");
+}
+

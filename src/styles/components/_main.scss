@@ -1,6 +1,6 @@
 
 body {
-  background-color: $color-background;
+  background-color: $color-bg;
   color: $color-text;
   @extend %font-primary;
 }
@@ -25,7 +25,7 @@ h1{
   border: none;
   border-radius: 10px;
   @include font(1.5rem, 2rem, 0.1rem);
-  color: $color-additional;
+  color: $color-add;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   &:focus-visible {
     outline: none;
