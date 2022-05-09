@@ -66,7 +66,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, './src/favicon.ico')        
+          from: path.resolve(__dirname, './src/favicon.ico'),
         },
         {
           from: "./assets/",
@@ -93,7 +93,10 @@ module.exports = {
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
-        type: 'asset/inline',    
+        type: 'asset/resource', 
+        generator: {
+          filename: 'assets/fonts/Xolonium/[name][ext][query]'
+        }      
       },
       {
         test: /\.m?js$/,
