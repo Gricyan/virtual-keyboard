@@ -68,12 +68,12 @@ module.exports = {
         {
           from: path.resolve(__dirname, './src/favicon.ico'),
         },
-        {
-          from: "./assets/",
-          to: "./assets/",
-          force: true,
-          noErrorOnMissing: true,
-        }
+        // {
+        //   from: "./assets/",
+        //   to: "./assets/",
+        //   force: true,
+        //   noErrorOnMissing: true,
+        // }
       ]
     }),
   ],
@@ -88,14 +88,14 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader",],
        },
       {
-        test: /\.(png|jpg|jpeg|svg|gif)$/,        
+        test: /\.svg$/,        
         type: 'asset/inline',
       },
       {
-        test: /\.(ttf|woff|woff2|eot)$/,
+        test: /\.ttf$/,
         type: 'asset/resource', 
         generator: {
-          filename: 'assets/fonts/Xolonium/[name][ext][query]'
+          filename: 'assets/fonts/[name][ext][query]'
         }      
       },
       {
@@ -107,6 +107,6 @@ module.exports = {
   },
   optimization: optimization(),
   devServer: {
-    port: 3000,
+    port: 8080,
   }
 }

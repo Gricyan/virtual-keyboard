@@ -1,0 +1,473 @@
+[[{
+  "key": "`",
+  "keyCode": 192,
+  "code": "Backquote",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "1",
+  "keyCode": 49,
+  "code": "Digit1",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "2",
+  "keyCode": 50,
+  "code": "Digit2",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "3",
+  "keyCode": 51,
+  "code": "Digit3",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "4",
+  "keyCode": 52,
+  "code": "Digit4",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "5",
+  "keyCode": 53,
+  "code": "Digit5",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "6",
+  "keyCode": 54,
+  "code": "Digit6",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "7",
+  "keyCode": 55,
+  "code": "Digit7",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "8",
+  "keyCode": 56,
+  "code": "Digit8",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "9",
+  "keyCode": 57,
+  "code": "Digit9",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "0",
+  "keyCode": 48,
+  "code": "Digit0",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "-",
+  "keyCode": 109,
+  "code": "NumpadSubtract",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "=",
+  "keyCode": 61,
+  "code": "Equal",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "Backspace",
+  "keyCode": 8,
+  "code": "Backspace",
+  "classes": ["keyboard__key", "backspace", "option-key", "icon-before"]
+ }],
+ [{
+  "key": "Tab",
+  "keyCode": 9,  
+  "code": "Tab",  
+  "classes": ["keyboard__key", "tab", "option-key", "icon-before"]
+ },
+ {
+  "key": "q",
+  "keyCode": 81,
+  "code": "KeyQ",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "w",
+  "keyCode": 87,
+  "code": "KeyW",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "e",
+  "keyCode": 69,
+  "code": "KeyE",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "r",
+  "keyCode": 82,
+  "code": "KeyR",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "t",
+  "keyCode": 84,
+  "code": "KeyT",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "y",
+  "keyCode": 89,
+  "code": "KeyY",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "u",
+  "keyCode": 85,  
+  "code": "KeyU",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "i",
+  "keyCode": 73,
+  "code": "KeyI",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "o",
+  "keyCode": 79,
+  "code": "KeyO",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "p",
+  "keyCode": 80,
+  "code": "KeyP",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "[",
+  "keyCode": 160,
+  "code": "BracketLeft",
+  "location": 0,
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "description": "^",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "]",
+  "keyCode": 221,
+  "code": "BracketRight", 
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "\\",
+  "keyCode": 220,
+  "code": "Backslash", 
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "Delete",
+  "keyCode": 46,
+  "code": "NumpadDecimal",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "classes": ["keyboard__key", "delete", "option-key"]
+ }],
+ [{
+  "key": "CapsLock",
+  "keyCode": 20,
+  "code": "CapsLock", 
+  "classes": ["keyboard__key", "capslock", "option-key"]
+ },
+ {
+  "key": "a",
+  "keyCode": 65,
+  "code": "KeyA",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "s",
+  "keyCode": 83,
+  "code": "KeyS",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "d",
+  "keyCode": 68,
+  "code": "KeyD",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "f",
+  "keyCode": 70,
+  "code": "KeyF",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "g",
+  "keyCode": 71,
+  "code": "KeyG",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "h",
+  "keyCode": 72,
+  "code": "KeyH",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "j",
+  "keyCode": 74,
+  "code": "KeyJ",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "k",
+  "keyCode": 75,
+  "code": "KeyK",
+  "altKey": true,
+  "ctrlKey": false,
+  "metaKey": true,
+  "shiftKey": false,
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "l",
+  "keyCode": 76,
+  "code": "KeyL",
+  "altKey": true,
+  "ctrlKey": false,
+  "metaKey": true,
+  "shiftKey": false,
+  "classes": "keyboard__key"
+ },
+ {
+  "key": ";",
+  "keyCode": 59,
+  "code": "Semicolon",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "'",
+  "keyCode": 222,
+  "code": "Quote",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "Enter",
+  "keyCode": 13,
+  "code": "Enter",
+  "classes": ["keyboard__key", "enter", "option-key", "icon-before"]
+ }],
+ [{
+  "key": "Shift",
+  "keyCode": 16,
+  "code": "ShiftLeft",
+  "classes": ["keyboard__key", "shift-left", "option-key", "icon-before"]
+ },
+ {
+  "key": "z",
+  "keyCode": 90,
+  "code": "KeyZ",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "x",
+  "keyCode": 88,
+  "code": "KeyX",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "c",
+  "keyCode": 67,
+  "code": "KeyC",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "f",
+  "keyCode": 70,
+  "code": "KeyF",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "v",
+  "keyCode": 86,
+  "code": "KeyV",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "b",
+  "keyCode": 66,
+  "code": "KeyB",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "n",
+  "keyCode": 78,
+  "code": "KeyN",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": ",",
+  "keyCode": 108,
+  "code": "NumpadDecimal",
+  "location": 3,
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "classes": "keyboard__key"
+ },
+ {
+  "key": ".",
+  "keyCode": 190,
+  "code": "Period",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "/",
+  "keyCode": 191,
+  "code": "Slash",
+  "classes": "keyboard__key"
+ },
+ {
+  "key": "",
+  "keyCode": 38,
+  "code": "ArrowUp",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "arrow-up", "option-key", "icon-bg"]
+ },
+ {
+  "key": "Shift",
+  "keyCode": 16,
+  "code": "ShiftLeft",
+  "classes": ["keyboard__key", "shift-right", "option-key", "icon-before"]
+ }],
+ [{
+  "key": "Ctrl",
+  "keyCode": 17,
+  "code": "ControlLeft",
+  "altKey": true,
+  "ctrlKey": false,
+  "metaKey": true,
+  "shiftKey": true,
+  "classes": ["keyboard__key", "ctrl-left", "option-key"]
+ },
+ {
+  "key": "Fn",
+  "keyCode": 21,
+  "code": "Fn",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "classes": ["keyboard__key", "fn", "option-key"]
+ },
+ {
+  "key": "Alt",
+  "keyCode": 18,
+  "code": "AltLeft",
+  "altKey": true,
+  "ctrlKey": false,
+  "metaKey": true,
+  "shiftKey": false,
+  "classes": ["keyboard__key", "alt-left", "option-key"]
+ },
+ {
+  "key": " ",
+  "keyCode": 32,
+  "which": 32,
+  "code": "Space",
+  "location": 0,
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "space", "option-key", "icon-bg"]
+ },
+ {
+  "key": "\\",
+  "keyCode": 220,
+  "code": "Backslash",
+  "classes": ["keyboard__key", "backslash", "option-key"]
+ },
+ {
+  "key": "",
+  "keyCode": 91,
+  "code": "OSLeft",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "windows", "option-key"]
+ },
+ {
+  "key": "",
+  "keyCode": 37,
+  "code": "ArrowLeft",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "arrow-left", "option-key", "icon-bg"]
+ },
+ {
+  "key": "",
+  "keyCode": 40,
+  "code": "ArrowDown",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "arrow-down", "option-key", "icon-bg"]
+ },
+ {
+  "key": "",
+  "keyCode": 39,
+  "code": "ArrowRight", 
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "arrow-right", "option-key", "icon-bg"]
+ },
+ {
+  "key": "AltGr",
+  "keyCode": 18,
+  "code": "AltRight",
+  "altKey": false,
+  "ctrlKey": false,
+  "metaKey": false,
+  "shiftKey": false,
+  "repeat": false,
+  "classes": ["keyboard__key", "alt-right", "option-key"]
+ },
+ {
+  "key": "Ctrl",
+  "which": 17,
+  "code": "ControlLeft",
+  "altKey": true,
+  "ctrlKey": false,
+  "metaKey": true,
+  "shiftKey": true,
+  "classes": ["keyboard__key", "ctrl-right", "option-key"]
+ }]
+]
