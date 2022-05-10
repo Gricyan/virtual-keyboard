@@ -175,7 +175,7 @@
  {
   "key": "Delete",
   "keyCode": 46,
-  "code": "NumpadDecimal",
+  "code": "Delete",
   "altKey": false,
   "ctrlKey": false,
   "metaKey": false,

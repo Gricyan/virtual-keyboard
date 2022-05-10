@@ -11,7 +11,7 @@ class Key {
     }
 
     generateKey() {      
-      let keyboardKey = document.createElement("button"); 
+      let keyboardKey = document.createElement("input"); 
 
       if (Array.isArray(this.classes)) {
         this.classes.forEach(item => {          
@@ -22,7 +22,8 @@ class Key {
       } 
 
       keyboardKey.setAttribute("type", "button");
-      keyboardKey.innerHTML = this.key;
+      keyboardKey.setAttribute("value", this.key);
+      // keyboardKey.innerHTML = this.key;
       keyboardKey.dataset.attr = this.code;
       return keyboardKey; 
     } 
@@ -36,8 +37,13 @@ for (let i = 0; i < keys.length; i++) {
   
   keys[i].forEach(keyItem => {
      keyboardRow.append(new Key(keyItem).generateKey()); 
+    // console.log(keyItem.code);
   });
   
   const keyboardContainer = document.querySelector(".keyboard__keys");
   keyboardContainer.append(keyboardRow); 
 }
+
+const capsLockIndicator = document.createElement("span");
+capsLockIndicator.classList.add("indicator");
+document.querySelector("[data-attr='CapsLock']").after(capsLockIndicator);

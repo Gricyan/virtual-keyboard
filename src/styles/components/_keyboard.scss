@@ -21,7 +21,8 @@
   outline: none;
   cursor: pointer;
   @extend %transition;
-  &:active {
+  &:active,
+  &.active {
     animation: press 0.3s 1 linear;
     box-shadow: 0 0 5px #009577aa;
   }
@@ -32,6 +33,7 @@
 
 .keyboard__keys_row {
   width: 100%;
+  position: relative; 
   @include flex ($flex: inline-flex, $wrap: nowrap, $justify: center); 
 }
 
@@ -73,21 +75,21 @@
   width: 16%;
 }
 
-.capslock {
-  position: relative;
-  &.active::after {    
-    background-color: $color-primary;
-  }
-}
-
-.capslock::after {
+.indicator {
   content: " ";
+  display: block;
   position: absolute;
   width: 7px;
   height: 7px;
   top: 5px;
-  right: 5px;
+  left: 5px;
   background-color: $color-bg-dark;
   border-radius: 50%;
+  transition: 0.05s ease-out;
+  &.active {    
+    background-color: $color-primary;
+  }
 }
+
+
 
