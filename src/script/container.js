@@ -1,10 +1,17 @@
 window.onload = function(){
   addBtnsClickHangler();
+  createCapsLockIndicator(); 
 };
 
-
 let textarea = document.getElementById("textarea");
-let keyBtns = document.getElementsByTagName("input");
+let keyBtns = document.querySelectorAll("input");
+
+
+const createCapsLockIndicator = () => {
+  const capsLockIndicator = document.createElement("span");
+  capsLockIndicator.classList.add("indicator");
+  document.querySelector("[data-attr='CapsLock']").after(capsLockIndicator);
+};
 
 
 const addBtnsClickHangler = () => {
@@ -62,11 +69,19 @@ for (let i = 0; i < keyBtns.length; i++) {
         break;
 
       case "CapsLock":
-        document.querySelector(".indicator").classList.toggle("active");  
+        document.querySelector(".indicator").classList.toggle("active");
         break;
 
-      case "Enter":          
-      textarea.textContent += "\n";
+      case "Enter":       
+      if (textarea.selectionStart === textarea.selectionEnd) {
+        textarea.value = `${textarea.value.slice(0, cursorPosition)}\n${textarea.value.slice(cursorPosition)}`;
+        textarea.selectionStart = cursorPosition + 1;
+        textarea.selectionEnd = textarea.selectionStart;
+      } else {
+        textarea.value = `${textarea.value.slice(0, cursorPosition)}\n${textarea.value.slice(textarea.selectionEnd)}`;
+        textarea.selectionStart = cursorPosition + 1;
+        textarea.selectionEnd = textarea.selectionStart;
+      }
         break;
 
       case "ShiftLeft":
@@ -79,25 +94,56 @@ for (let i = 0; i < keyBtns.length; i++) {
 
       default:
         if (textarea.selectionStart === textarea.selectionEnd) {
-          textarea.value = textarea.value.slice(0, cursorPosition) + keyBtns[i].value
-            + textarea.value.slice(cursorPosition);
-            textarea.selectionStart = cursorPosition + 1;
-            textarea.selectionEnd = textarea.selectionStart;
+          if (document.querySelector(".indicator").classList.contains("active")) {
+            textarea.value = textarea.value.slice(0, cursorPosition) + (keyBtns[i].value).toUpperCase() + textarea.value.slice(cursorPosition);
+          } else {
+            textarea.value = textarea.value.slice(0, cursorPosition) + (keyBtns[i].value) + textarea.value.slice(cursorPosition);
+          }
+          textarea.selectionStart = cursorPosition + 1;
+          textarea.selectionEnd = textarea.selectionStart;
         } else {
-          textarea.value = textarea.value.slice(0, textarea.selectionStart)
-            + keyBtns[i].value + textarea.value.slice(textarea.selectionEnd);
-            textarea.selectionStart = cursorPosition + 1;
-            textarea.selectionEnd = textarea.selectionStart;
-        }
+          if (document.querySelector(".indicator").classList.contains("active")) {
+            textarea.value = textarea.value.slice(0, textarea.selectionStart) + keyBtns[i].value.toUpperCase() + textarea.value.slice(textarea.selectionEnd);
+          } else {
+            textarea.value = textarea.value.slice(0, textarea.selectionStart) + keyBtns[i].value + textarea.value.slice(textarea.selectionEnd);
+          }
+          textarea.selectionStart = cursorPosition + 1;
+          textarea.selectionEnd = textarea.selectionStart;
+        }        
     }    
   });
   }
 };
 
 
-document.addEventListener("keydown", () => {
+document.addEventListener("keydown", (event) => {
   textarea.focus();
- // console.log(event);
+  let cursorPosition = textarea.selectionStart;
+
+  switch (event.code) {
+    case "Tab":
+      event.preventDefault();
+      if (textarea.selectionStart === textarea.selectionEnd) {
+        textarea.value = `${textarea.value.slice(0, cursorPosition)}    ${textarea.value.slice(cursorPosition)}`;
+        textarea.selectionStart = cursorPosition + 4;
+        textarea.selectionEnd = textarea.selectionStart;
+      } else {
+        textarea.value = `${textarea.value.slice(0, cursorPosition)}    ${textarea.value.slice(textarea.selectionEnd)}`;
+        textarea.selectionStart = cursorPosition + 4;
+        textarea.selectionEnd = textarea.selectionStart;
+      }
+      break;
+    
+    case "CapsLock":
+      console.log(event.code);
+
+      break;
+
+    default:
+      console.log(event.code);
+  }
+
+  
 
 });
 
