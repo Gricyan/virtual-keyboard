@@ -67,7 +67,7 @@
  {
   "key": "-",
   "keyCode": 109,
-  "code": "NumpadSubtract",
+  "code": "Minus",
   "classes": "keyboard__key"
  },
  {
@@ -293,12 +293,6 @@
   "classes": "keyboard__key"
  },
  {
-  "key": "f",
-  "keyCode": 70,
-  "code": "KeyF",
-  "classes": "keyboard__key"
- },
- {
   "key": "v",
   "keyCode": 86,
   "code": "KeyV",
@@ -317,9 +311,15 @@
   "classes": "keyboard__key"
  },
  {
+  "key": "m",
+  "keyCode": 77,
+  "code": "KeyM",
+  "classes": "keyboard__key"
+ },
+ {
   "key": ",",
   "keyCode": 108,
-  "code": "NumpadDecimal",
+  "code": "Comma",
   "location": 3,
   "altKey": false,
   "ctrlKey": false,
@@ -353,7 +353,7 @@
  {
   "key": "Shift",
   "keyCode": 16,
-  "code": "ShiftLeft",
+  "code": "ShiftRight",
   "classes": ["keyboard__key", "shift-right", "option-key", "icon-before"]
  }],
  [{
@@ -402,13 +402,13 @@
  {
   "key": "\\",
   "keyCode": 220,
-  "code": "Backslash",
+  "code": "IntlBackslash",
   "classes": ["keyboard__key", "backslash", "option-key"]
  },
  {
   "key": "",
   "keyCode": 91,
-  "code": "OSLeft",
+  "code": "MetaLeft",
   "altKey": false,
   "ctrlKey": false,
   "metaKey": false,
@@ -463,7 +463,7 @@
  {
   "key": "Ctrl",
   "which": 17,
-  "code": "ControlLeft",
+  "code": "ControlRight",
   "altKey": true,
   "ctrlKey": false,
   "metaKey": true,

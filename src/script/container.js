@@ -23,6 +23,8 @@ for (let i = 0; i < keyBtns.length; i++) {
    // console.log("event: ", event);
 
 
+
+
     switch (keyBtns[i].dataset.attr) {
       case "Backspace":
         if (textarea.selectionStart !== 0) {
@@ -120,9 +122,15 @@ document.addEventListener("keydown", (event) => {
   textarea.focus();
   let cursorPosition = textarea.selectionStart;
 
+  console.log(event.code);
+
+  document.querySelector(`[data-attr="${event.code}"]`).classList.add("active");
+  setTimeout(() => { 
+    document.querySelector(`[data-attr="${event.code}"]`).classList.remove("active");
+  }, 300); 
+
   switch (event.code) {
     case "Tab":
-      event.preventDefault();
       if (textarea.selectionStart === textarea.selectionEnd) {
         textarea.value = `${textarea.value.slice(0, cursorPosition)}    ${textarea.value.slice(cursorPosition)}`;
         textarea.selectionStart = cursorPosition + 4;
@@ -132,24 +140,10 @@ document.addEventListener("keydown", (event) => {
         textarea.selectionStart = cursorPosition + 4;
         textarea.selectionEnd = textarea.selectionStart;
       }
-      break;
-    
-    case "CapsLock":
-      console.log(event.code);
-
+      event.preventDefault();
       break;
 
     default:
       console.log(event.code);
   }
-
-  
-
 });
-
-
-
-// document.querySelector("[data-attr='Backspace']").classList.add("active");
-// setTimeout(() => { 
-//   document.querySelector("[data-attr='Backspace']").classList.remove("active");
-// }, 300); 
