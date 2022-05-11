@@ -26,6 +26,9 @@
     animation: press 0.3s 1 linear;
     box-shadow: 0 0 5px #009577aa;
   }
+  &.key-light {   
+    box-shadow: 0 0 5px $color-light;
+  }
   &:hover {
     filter: contrast(110%);
   }

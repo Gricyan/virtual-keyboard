@@ -367,14 +367,10 @@
   "classes": ["keyboard__key", "ctrl-left", "option-key"]
  },
  {
-  "key": "Fn",
+  "key": "",
   "keyCode": 21,
-  "code": "Fn",
-  "altKey": false,
-  "ctrlKey": false,
-  "metaKey": false,
-  "shiftKey": false,
-  "classes": ["keyboard__key", "fn", "option-key"]
+  "code": "LightMode",
+  "classes": ["keyboard__key", "light-mode", "option-key"]
  },
  {
   "key": "Alt",
