@@ -71,7 +71,7 @@ for (let i = 0; i < keyBtns.length; i++) {
         break;
 
       case "CapsLock":
-        document.querySelector(".indicator").classList.toggle("active");
+        document.querySelector(".indicator").classList.toggle("key-up");
         break;
 
       case "Enter":       
@@ -142,6 +142,10 @@ document.addEventListener("keydown", (event) => {
       }
       event.preventDefault();
       break;
+
+    case "CapsLock":
+      document.querySelector(".indicator").classList.toggle("key-up");
+      break;  
 
     default:
       console.log(event.code);

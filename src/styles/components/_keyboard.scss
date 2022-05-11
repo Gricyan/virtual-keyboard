@@ -79,14 +79,14 @@
   content: " ";
   display: block;
   position: absolute;
-  width: 7px;
-  height: 7px;
-  top: 5px;
-  left: 5px;
+  width: 9px;
+  height: 9px;
+  top: 8px;
+  left: 8px;
   background-color: $color-bg-dark;
   border-radius: 50%;
   transition: 0.05s ease-out;
-  &.active {    
+  &.key-up {    
     background-color: $color-primary;
   }
 }
