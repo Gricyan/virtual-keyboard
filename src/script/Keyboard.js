@@ -1,6 +1,5 @@
 import keys from "./keys.json";
 
-
 export class Key {
   constructor({ key, keyCode, code, classes}) {
       this.key = key;
