@@ -1,0 +1,13 @@
+@import "~normalize.css";
+@import "base/fonts";
+@import "base/animations";
+@import "base/icons";
+
+@import "abstracts/constants";
+@import "abstracts/mixins";
+@import "abstracts/placeholders";
+
+@import "components/header";
+@import "components/main";
+@import "components/keyboard";
+@import "components/footer";
