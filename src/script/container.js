@@ -1,6 +1,17 @@
 import keys from "./keys.json";
 import keysRu from "./keysRu.json";
 
+const textarea = document.querySelector(".textarea");
+const keyBtns = document.querySelectorAll("input");
+const LightMode = document.querySelector(".light-mode");
+
+window.onload = function(){
+  addBtnsClickHangler();  
+  showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));
+  textarea.focus();    
+};
+
+
 // Set default language to localStorage
 
 let currentLang = "en";
@@ -11,28 +22,28 @@ if (localStorage.getItem("lang") == null) {
   currentLang = "ru";
 }
 
-// Check capsLock in localStorage
 
-let caps = "noCapsLock";
+// Create indicator for CapsLock indicator
+
+const createCapsLockIndicator = () => {
+  const capsLockIndicator = document.createElement("span");
+  capsLockIndicator.classList.add("indicator");
+  document.querySelector("[data-attr='CapsLock']").after(capsLockIndicator);
+};
+createCapsLockIndicator(); 
+
+
+// Check CapsLock in localStorage
 
 if (localStorage.getItem("caps") == null) {  
-  localStorage.setItem("caps", caps);  
-} else if (localStorage.getItem("caps") == "CapsLock") {
-  caps = "noCapsLock";
+  localStorage.setItem("caps", "lowerCase"); 
+  document.querySelector(".indicator").classList.remove("key-up"); 
+} else if (localStorage.getItem("caps") == "upperCase") {
+  document.querySelector(".indicator").classList.add("key-up");
 }
 
-window.onload = function(){
-  addBtnsClickHangler();
-  createCapsLockIndicator(); 
-  showLetters(currentLang, "lowerCase");
-};
 
-const textarea = document.querySelector(".textarea");
-const keyBtns = document.querySelectorAll("input");
-const LightMode = document.querySelector(".light-mode");
-
-
-
+// Show characters
 
 const showLetters = (currentLang, whatCase) => {
   if (currentLang === "ru") {
@@ -60,21 +71,24 @@ const showLetters = (currentLang, whatCase) => {
   }
 };
 
-// textarea.addEventListener("keyup", function(event) {
-// console.log(event);
-//   if (event.getModifierState("CapsLock")) {
-//     document.querySelector(".indicator").classList.toggle("key-up");
-//   } else {
-//     document.querySelector(".indicator").classList.remove("key-up");
-//   }
-// });
 
-const createCapsLockIndicator = () => {
-  const capsLockIndicator = document.createElement("span");
-  capsLockIndicator.classList.add("indicator");
-  document.querySelector("[data-attr='CapsLock']").after(capsLockIndicator);
+// Auro set to CapsLock mode
+
+const autoSetToCapsLock = (event) => {
+  if (event.getModifierState("CapsLock") && !(document.querySelector(".indicator").classList.contains("key-up"))) {
+    document.querySelector(".indicator").classList.add("key-up");
+    localStorage.setItem("caps", "upperCase");
+    showLetters(localStorage.getItem("lang"), localStorage.getItem("caps")); 
+    
+    document.querySelector(".caps-lock-info").classList.add("show");
+    setTimeout(() => { 
+      document.querySelector(".caps-lock-info").classList.remove("show");
+    }, 7000);
+  } 
 };
 
+
+// Click handling
 
 const addBtnsClickHangler = () => {
 for (let i = 0; i < keyBtns.length; i++) {
@@ -131,24 +145,16 @@ for (let i = 0; i < keyBtns.length; i++) {
         }
         break;
 
-      case "CapsLock":
-        document.querySelector(".indicator").classList.toggle("key-up");
+      case "CapsLock":       
         if (document.querySelector(".indicator").classList.contains("key-up")) {
-          showLetters("en", "upperCase");
+          document.querySelector(".indicator").classList.remove("key-up");
+          localStorage.setItem("caps", "lowerCase");
+          showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));
         } else {
-          showLetters("en", "lowerCase");
+          document.querySelector(".indicator").classList.add("key-up");
+          localStorage.setItem("caps", "upperCase");
+          showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));        
         } 
-
-        if (localStorage.getItem("caps") == "noCapsLock") {
-        localStorage.removeItem("caps", "noCapsLock"); 
-        localStorage.setItem("caps", "CapsLock"); 
-        caps = "CapsLock";
-            
-      } else if (localStorage.getItem("caps") == "CapsLock") {
-        localStorage.removeItem("caps", "CapsLock"); 
-        localStorage.setItem("caps", "noCapsLock");
-        caps = "noCapsLock";
-      }
       break;
       
       case "ControlLeft":  
@@ -263,12 +269,11 @@ for (let i = 0; i < keyBtns.length; i++) {
 };
 
 
+// Keydown handling
 
 document.addEventListener("keydown", (event) => {
   textarea.focus();
   let cursorPosition = textarea.selectionStart;
-
-//  console.log(event.code);
 
   document.querySelector(`[data-attr="${event.code}"]`).classList.add("active");
   setTimeout(() => { 
@@ -289,26 +294,59 @@ document.addEventListener("keydown", (event) => {
       event.preventDefault();
       break;
 
-    case "CapsLock":
-      document.querySelector(".indicator").classList.toggle("key-up");
-
-      if (localStorage.getItem("caps") == "noCapsLock") {
-        localStorage.removeItem("caps", "noCapsLock"); 
-        localStorage.setItem("caps", "CapsLock"); 
-        caps = "CapsLock";
-            
-      } else if (localStorage.getItem("caps") == "CapsLock") {
-        localStorage.removeItem("caps", "CapsLock"); 
-        localStorage.setItem("caps", "noCapsLock");
-        caps = "noCapsLock";
-      }
+    case "Backspace":
+    case "Enter":
+    case "ShiftLeft":
+    case "ShiftRight":
+    case "AltRight":  
+    case "ControlLeft":     
+    case "ControlRight": 
+    case "ArrowUp": 
+    case "ArrowLeft":
+    case "ArrowRight":
+    case "ArrowDown":
+    case "Delete":
       break;  
 
-    case "AltLeft":      
-      break;    
+    case "CapsLock":
 
-    default:
-     // console.log(event.code);
+
+      if (document.querySelector(".indicator").classList.contains("key-up")) {
+        document.querySelector(".indicator").classList.remove("key-up");
+        localStorage.setItem("caps", "lowerCase");
+        showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));
+        
+      } else {
+        document.querySelector(".indicator").classList.add("key-up");
+        localStorage.setItem("caps", "upperCase");
+        showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));        
+      } 
+    break;  
+
+    case "AltLeft": 
+    event.preventDefault();
+      break;
+
+    default: 
+    if (localStorage.getItem("lang", "en")) {     
+      showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));  
+    } else {
+      showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));       
+    }
+
+    autoSetToCapsLock(event);    
+
+    if (textarea.selectionStart === textarea.selectionEnd) {
+      if (event.getModifierState("CapsLock")) {
+        textarea.value = textarea.value.slice(0, cursorPosition) + document.querySelector(`[data-attr="${event.code}"]`).value + textarea.value.slice(cursorPosition);
+      } else {
+        textarea.value = textarea.value.slice(0, cursorPosition) + document.querySelector(`[data-attr="${event.code}"]`).value + textarea.value.slice(cursorPosition);
+      }
+      textarea.selectionStart = cursorPosition + 1;
+      textarea.selectionEnd = textarea.selectionStart;
+    }
+
+    event.preventDefault();     
   }
 });
 
@@ -321,6 +359,7 @@ document.onkeydown = (event) => {
       if (event.code == "AltLeft") { 
         if (localStorage.getItem("lang") == "en") {
           localStorage.removeItem("lang", "en");
+
           localStorage.setItem("lang", "ru"); 
           currentLang = "ru";
               
@@ -329,9 +368,11 @@ document.onkeydown = (event) => {
           localStorage.setItem("lang", "en");
           currentLang = "en";
         }
-        caps = localStorage.getItem("caps");
-        console.log(caps);
-        showLetters(currentLang, caps);
+
+        if (localStorage.getItem("caps") == "upperCase") {
+          document.querySelector(".indicator").classList.add("key-up");
+        }
+        showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));
         event.preventDefault();
       }
     };
@@ -345,4 +386,6 @@ LightMode.addEventListener("click", () => {
   for (let i = 0; i < keyBtns.length; i++) {
     keyBtns[i].classList.toggle("key-light");
   }
+  textarea.selectionStart = textarea.selectionStart - 1;
+  textarea.selectionEnd = textarea.selectionStart;
 });

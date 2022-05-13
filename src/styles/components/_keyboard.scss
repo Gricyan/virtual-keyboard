@@ -93,3 +93,14 @@
     background-color: $color-primary;
   }
 }
+
+.caps-lock-info {
+ display: none;  
+ padding: 0 15px;
+ border-radius: 5px;
+ background-color: $color-bg-dark;
+ box-shadow: 0 0 5px $color-primary; 
+  &.show {
+    display: block;
+  }
+}
