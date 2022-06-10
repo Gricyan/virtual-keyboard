@@ -1,4 +1,4 @@
 # virtual-keyboard
 RS School Task
 
-https://gricyan.github.io/virtual-keyboard/dist/
+https://gricyan.github.io/virtual-keyboard/
