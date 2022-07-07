@@ -1,12 +1,23 @@
 import keys from "./keys.json";
 import keysRu from "./keysRu.json";
+import { Keyboard } from "./Keyboard.js";
+
+
+// Init Keyboard
+
+const keyboardContainer = document.querySelector(".keyboard__keys");
+const keyboard = new Keyboard();    
+keyboard.generateKeyboardRow(keys).forEach(row => keyboardContainer.append(row));
+
+
+// Start handling
 
 const textarea = document.querySelector(".textarea");
 const keyBtns = document.querySelectorAll("input");
 const LightMode = document.querySelector(".light-mode");
 
 window.onload = function(){
-  addBtnsClickHangler();  
+  addBtnsClickHandler();  
   showLetters(localStorage.getItem("lang"), localStorage.getItem("caps"));
   textarea.focus();    
 };
@@ -72,7 +83,7 @@ const showLetters = (currentLang, whatCase) => {
 };
 
 
-// Auro set to CapsLock mode
+// Auto set to CapsLock mode
 
 const autoSetToCapsLock = (event) => {
   if (event.getModifierState("CapsLock") && !(document.querySelector(".indicator").classList.contains("key-up"))) {
@@ -90,7 +101,7 @@ const autoSetToCapsLock = (event) => {
 
 // Click handling
 
-const addBtnsClickHangler = () => {
+const addBtnsClickHandler = () => {
 for (let i = 0; i < keyBtns.length; i++) {
     keyBtns[i].addEventListener("click", () => {  
     textarea.focus();
@@ -164,7 +175,7 @@ for (let i = 0; i < keyBtns.length; i++) {
         break;
 
       case "MetaLeft":
-        alert("The browser has limited access outside of itself for security reasons!"); 
+        alert(`You use ${navigator.platform} platform`); 
         break; 
 
       case "Enter":       
@@ -184,7 +195,15 @@ for (let i = 0; i < keyBtns.length; i++) {
         break;    
 
       case "Space":
-        textarea.value += " ";
+        if (textarea.selectionStart === textarea.selectionEnd) {
+          textarea.value = `${textarea.value.slice(0, cursorPosition)} ${textarea.value.slice(cursorPosition)}`;
+          textarea.selectionStart = cursorPosition + 1;
+          textarea.selectionEnd = textarea.selectionStart;
+        } else {
+          textarea.value = `${textarea.value.slice(0, cursorPosition)} ${textarea.value.slice(textarea.selectionEnd)}`;
+          textarea.selectionStart = cursorPosition + 1;
+          textarea.selectionEnd = textarea.selectionStart;
+        }
         break;
 
       case "ArrowUp":        
